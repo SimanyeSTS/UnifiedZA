@@ -1,87 +1,107 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app-wrapper">
+<nav class="navbar">
+      <div class="logo">
+        <RouterLink to="/" class="logo-link">
+          <h2>UNIFIED ZA</h2>
+        </RouterLink>
+      </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <ul class="nav-links">
+        <li><RouterLink to="/">Home</RouterLink></li>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+        <li><RouterLink to="/marks-recording">Calculate APS</RouterLink></li>
+        <li><RouterLink to="/marks-results">APS Results</RouterLink></li>
 
-  <RouterView />
+        <li><RouterLink to="/search">Universities</RouterLink></li>
+
+        <li><RouterLink to="/applications-cart">My Applications</RouterLink></li>
+
+        <li><RouterLink to="/bursary">Funding</RouterLink></li>
+
+        <li><RouterLink to="/help">Support</RouterLink></li>
+
+        <li><RouterLink to="/register">Register</RouterLink></li>
+        <li><RouterLink to="/login" class="nav-login-btn">Login</RouterLink></li>
+      </ul>
+    </nav>
+
+    <RouterView />
+
+    <footer class="footer">
+      <p>UNIFIED ZA &copy; 2026</p>
+    </footer>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<style>
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.navbar {
+  background-color: var(--vt-c-primary);
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
+.logo-link {
+  text-decoration: none;
+}
+
+.logo h2 {
+  color: white;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: center;
+}
+
+
+.nav-links a {
+  color: #c8d8d8;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.router-link-active {
+  color: white;
+}
+
+.nav-login-btn {
+  background-color: var(--vt-c-secondary);
+  color: var(--vt-c-primary) !important;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: bold !important;
+}
+
+.nav-login-btn:hover {
+  background-color: var(--vt-c-secondary-hover);
+}
+
+.footer {
+  background-color: var(--vt-c-primary);
+  color: white;
   text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+  padding: 15px;
+  font-size: 13px;
+  margin-top: auto;
 }
 </style>
-
-

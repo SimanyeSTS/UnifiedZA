@@ -1,16 +1,15 @@
 <!-- Cebe's territory -->
 
-<script setup>
-
-
-</script>
-
 <template>
-  <div>
-
-  </div>
+  <div class="dev-container">
+    <h1>Institution Directory & Courses Catalog</h1>
+    <p>Subsystem Owner: 👑 Cebe Somhlahlo</p>
+    </div>
 </template>
 
 <style scoped>
-
+.dev-container {
+  padding: 50px;
+  text-align: center;
+}
 </style>
