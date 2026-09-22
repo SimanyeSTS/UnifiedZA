@@ -12,7 +12,7 @@ const form = ref({
   phone: '',
   password: '',
   confirmPassword: '',
-  province: ''
+  province: '',
 })
 
 const handleRegister = () => {
@@ -81,19 +81,36 @@ const handleRegister = () => {
         <button type="submit" class="login-btn">CREATE ACCOUNT</button>
       </form>
 
-      <p class="register-link">
-        Already have an account? <RouterLink to="/">Log in</RouterLink>
-      </p>
+      <p class="register-link">Already have an account? <RouterLink to="/">Log in</RouterLink></p>
     </div>
   </main>
 </template>
 
 <style scoped>
-.main-content { display: flex; justify-content: center; align-items: center; padding: 50px 20px; }
-.login-card { background-color: white; padding: 40px; width: 100%; max-width: 420px; border-radius: 8px; }
-.login-card h1 { text-align: center; font-size: 24px; color: var(--vt-c-text-main); margin-bottom: 25px; }
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px 20px;
+}
+.login-card {
+  background-color: white;
+  padding: 40px;
+  width: 100%;
+  max-width: 420px;
+  border-radius: 8px;
+}
+.login-card h1 {
+  text-align: center;
+  font-size: 24px;
+  color: var(--vt-c-text-main);
+  margin-bottom: 25px;
+}
 
-.role-selector { display: flex; margin-bottom: 20px; }
+.role-selector {
+  display: flex;
+  margin-bottom: 20px;
+}
 .role-btn {
   flex: 1;
   padding: 10px;
@@ -109,14 +126,50 @@ const handleRegister = () => {
 }
 
 /* Form Styles */
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; font-size: 13px; color: var(--vt-c-text-main); margin-bottom: 5px; }
-.form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; font-size: 14px; outline: none; }
-.form-group input:focus { border-color: var(--vt-c-primary); }
+.form-group {
+  margin-bottom: 20px;
+}
+.form-group label {
+  display: block;
+  font-size: 13px;
+  color: var(--vt-c-text-main);
+  margin-bottom: 5px;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+}
+.form-group input:focus {
+  border-color: var(--vt-c-primary);
+}
 
-.login-btn { width: 100%; padding: 12px; background-color: var(--vt-c-secondary); color: var(--vt-c-primary); border: none; border-radius: 4px; font-size: 14px; font-weight: bold; cursor: pointer; letter-spacing: 1px; }
-.login-btn:hover { background-color: var(--vt-c-secondary-hover); }
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--vt-c-secondary);
+  color: var(--vt-c-primary);
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+.login-btn:hover {
+  background-color: var(--vt-c-secondary-hover);
+}
 
-.register-link { text-align: center; font-size: 13px; margin-top: 20px; }
-.register-link a { color: var(--vt-c-link); text-decoration: none; }
+.register-link {
+  text-align: center;
+  font-size: 13px;
+  margin-top: 20px;
+}
+.register-link a {
+  color: var(--vt-c-link);
+  text-decoration: none;
+}
 </style>
