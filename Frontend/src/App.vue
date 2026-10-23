@@ -15,6 +15,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <li><RouterLink to="/">Home</RouterLink></li>
 
         <li><RouterLink to="/marks-recording">Calculate APS</RouterLink></li>
+
         <li><RouterLink to="/marks-results">APS Results</RouterLink></li>
 
         <li><RouterLink to="/search">Universities</RouterLink></li>
@@ -26,6 +27,7 @@ import { RouterLink, RouterView } from 'vue-router'
         <li><RouterLink to="/help">Support</RouterLink></li>
 
         <li><RouterLink to="/register">Register</RouterLink></li>
+        
         <li><RouterLink to="/login" class="nav-login-btn">Login</RouterLink></li>
       </ul>
     </nav>
