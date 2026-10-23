@@ -15,14 +15,9 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) {
         http
                 .csrf(AbstractHttpConfigurer::disable)
-
-                //Route permissions config
+                // Removes all endpoint locks for development
                 .authorizeHttpRequests(auth -> auth
-                    //Endpoints access to frontend without authentication
-                        .requestMatchers("/api/auth/**", "/api/faq/**").permitAll()
-
-                        //Rest of the endpoints require authentication
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 );
 
         return http.build();
