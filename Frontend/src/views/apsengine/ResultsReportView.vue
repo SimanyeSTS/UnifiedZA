@@ -1,4 +1,4 @@
-<script setup>
+r<script setup>
 import { computed } from 'vue'
 import { useApsStore } from '../../stores/apsStore'
 import { useRouter } from 'vue-router'
