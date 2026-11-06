@@ -1,0 +1,8 @@
+com\mycompany\loginregistrationunifiedza\loginForm\loginForm.class
+com\mycompany\loginregistrationunifiedza\passwords\passwords.class
+com\mycompany\loginregistrationunifiedza\provinceDao\provinceDao.class
+com\mycompany\loginregistrationunifiedza\userDao\userDao.class
+com\mycompany\loginregistrationunifiedza\LoginRegistrationUnifiedZa.class
+com\mycompany\loginregistrationunifiedza\registerForm\registerForm$ProvinceItem.class
+com\mycompany\loginregistrationunifiedza\DBConnection\DBConnection.class
+com\mycompany\loginregistrationunifiedza\registerForm\registerForm.class
