@@ -1,5 +1,7 @@
 // Kgalelo's territory
 package com.unifiedza.api.unifiedzabackend.funding;
 
-public class BursaryRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface BursaryRepository extends JpaRepository<Bursary, Long> {
 }
