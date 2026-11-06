@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bursary & Funding Matcher</title>
+<style>
+body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; line-height: 1.6; }
+.form-group { margin-bottom: 15px; }
+label { display: block; font-weight: bold; margin-bottom: 5px; }
+input, select, button { width: 100%; padding: 10px; box-sizing: border-box; }
+button { background-color: #0056b3; color: white; border: none; font-size: 16px; cursor: pointer; border-radius: 4px; }
+button:hover { background-color: #003d80; }
+.result-card { border: 1px solid #ccc; padding: 15px; border-radius: 6px; margin-top: 15px; background-color: #f9f9f9; }
+.nsfas-badge { background-color: #28a745; color: white; padding: 3px 8px; border-radius: 3px; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<h2>Bursary & Funding Matcher Subsystem</h2>
+
+<div class="form-group">
+<label for="income">Annual Household Income (ZAR):</label>
+<input type="number" id="income" value="250000" placeholder="e.g. 250000">
+</div>
+
+<div class="form-group">
+<label for="aps">APS Score:</label>
+<input type="number" id="aps" value="35" placeholder="e.g. 35">
+</div>
+
+<div class="form-group">
+<label for="field">Field of Study:</label>
+<input type="text" id="field" value="ALL" placeholder="e.g. ALL or Information Technology">
+</div>
+
+<button onclick="findMatches()">Match Bursaries</button>
+
+<h3>Available Matches</h3>
+<div id="results">Click "Match Bursaries" to fetch results.</div>
+
+<script>
+async function findMatches() {
+const income = document.getElementById('income').value;
+const aps = document.getElementById('aps').value;
+const field = document.getElementById('field').value;
+const resultsDiv = document.getElementById('results');
+
+resultsDiv.innerHTML = "<p>Loading...</p>";
+
+try {
+const response = await fetch(`/api/bursaries/match?householdIncome=${income}&baseAps=${aps}&fieldofstudy=${encodeURIComponent(field)}`);
+if (!response.ok) throw new Error("Failed to fetch matches");
+
+const data = await response.json();
+
+if (data.length === 0) {
+resultsDiv.innerHTML = "<p>No matching bursaries found for your criteria.</p>";
+return;
+}
+
+resultsDiv.innerHTML = data.map(bursary => `
+<div class="result-card">
+<h4>${bursary.title} ${bursary.isNsfas ? '<span class="nsfas-badge">NSFAS Approved</span>' : ''}</h4>
+<p>${bursary.description || 'No description provided.'}</p>
+<p><strong>Min APS Required:</strong> ${bursary.minApsScore}</p>
+<p><strong>Max Household Income:</strong> R${bursary.maxHouseholdIncome}</p>
+</div>
+`).join('');
+} catch (err) {
+resultsDiv.innerHTML = `<p style="color: red;">Error loading bursaries: ${err.message}</p>`;
+}
+}
+</script>
+</body>
+</html>
